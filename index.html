@@ -2,752 +2,142 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Build Your Success Team Fast</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Build Your Success Team Fast</title>
   <style>
-    :root {
-      --navy: #050816;
-      --navy-soft: #0a1020;
-      --emerald: #00d67a;
-      --emerald-soft: #00b86a;
-      --gold: #f5c76a;
-      --white: #ffffff;
-      --text-soft: #c9d4f5;
-      --danger: #ff4b4b;
-      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.55);
-      --radius-lg: 18px;
-      --radius-md: 12px;
-      --radius-sm: 8px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-        "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #101735 0, #050816 55%, #02030a 100%);
-      color: var(--white);
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: stretch;
-      padding: 24px 16px;
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: radial-gradient(circle at top, #0a0f1c 0%, #050816 100%);
+      color: #fff;
+      overflow-x: hidden;
     }
 
-    .page-wrapper {
-      width: 100%;
-      max-width: 1200px;
+    .container {
+      max-width: 900px;
       margin: auto;
+      padding: 40px 20px;
+      text-align: center;
     }
 
-    .landing {
-      background: linear-gradient(145deg, rgba(10, 16, 32, 0.96), rgba(5, 8, 22, 0.98));
-      border-radius: 28px;
-      padding: 32px 26px 30px;
-      box-shadow: 0 40px 90px rgba(0, 0, 0, 0.75);
-      position: relative;
-      overflow: hidden;
-      isolation: isolate;
-    }
-
-    /* Futuristic digital background */
-    .landing::before,
-    .landing::after {
-      content: "";
-      position: absolute;
-      inset: -40%;
-      background:
-        radial-gradient(circle at 10% 20%, rgba(0, 214, 122, 0.12) 0, transparent 55%),
-        radial-gradient(circle at 80% 10%, rgba(245, 199, 106, 0.12) 0, transparent 55%),
-        radial-gradient(circle at 80% 80%, rgba(0, 214, 122, 0.1) 0, transparent 55%);
-      opacity: 0.9;
-      z-index: -3;
-    }
-
-    .landing::after {
-      background-image:
-        radial-gradient(circle at 20% 30%, rgba(0, 214, 122, 0.35) 0, transparent 55%),
-        radial-gradient(circle at 70% 70%, rgba(245, 199, 106, 0.25) 0, transparent 55%);
-      mix-blend-mode: screen;
-      opacity: 0.35;
-    }
-
-    .network-layer {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      opacity: 0.35;
-      z-index: -2;
-      background-image:
-        linear-gradient(120deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-        linear-gradient(210deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-      background-size: 80px 80px;
-    }
-
-    .network-layer::before,
-    .network-layer::after {
-      content: "";
-      position: absolute;
-      width: 260px;
-      height: 260px;
-      border-radius: 50%;
-      border: 1px solid rgba(0, 214, 122, 0.35);
-      box-shadow:
-        0 0 18px rgba(0, 214, 122, 0.45),
-        0 0 60px rgba(0, 214, 122, 0.25);
-      top: 12%;
-      left: 8%;
-      filter: blur(0.2px);
-    }
-
-    .network-layer::after {
-      width: 220px;
-      height: 220px;
-      top: auto;
-      bottom: 10%;
-      left: auto;
-      right: 10%;
-      border-color: rgba(245, 199, 106, 0.4);
-      box-shadow:
-        0 0 18px rgba(245, 199, 106, 0.5),
-        0 0 60px rgba(245, 199, 106, 0.25);
-    }
-
-    .content-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-      gap: 32px;
-      align-items: center;
-    }
-
-    @media (max-width: 900px) {
-      .landing {
-        padding: 24px 18px 26px;
-        border-radius: 22px;
-      }
-      .content-grid {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 26px;
-      }
-    }
-
-    @media (max-width: 600px) {
-      body {
-        padding: 16px 10px;
-      }
-      .landing {
-        padding: 20px 16px 22px;
-      }
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 0 0, rgba(0, 214, 122, 0.4), transparent 55%),
-        rgba(5, 8, 22, 0.9);
-      border: 1px solid rgba(0, 214, 122, 0.4);
-      color: var(--text-soft);
-      font-size: 12px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 14px;
-    }
-
-    .badge-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--emerald);
-      box-shadow: 0 0 10px rgba(0, 214, 122, 0.9);
-    }
-
-    .headline {
-      font-size: clamp(30px, 4vw, 40px);
-      line-height: 1.05;
+    h1 {
+      font-size: 2.8rem;
       font-weight: 800;
-      letter-spacing: 0.06em;
+      color: #fff;
       text-transform: uppercase;
-      color: var(--white);
-      text-shadow:
-        0 0 18px rgba(0, 0, 0, 0.9),
-        0 0 22px rgba(245, 199, 106, 0.35);
-      margin-bottom: 14px;
+      letter-spacing: 0.05em;
+      margin-bottom: 10px;
     }
 
-    .headline span {
-      background: linear-gradient(120deg, var(--emerald), var(--gold));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+    h1 span {
+      color: #00d67a;
+      text-shadow: 0 0 15px rgba(0, 214, 122, 0.6);
+    }
+
+    .attention {
+      color: #f5c76a;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      font-size: 0.9rem;
     }
 
     .subheadline {
-      font-size: 16px;
-      line-height: 1.6;
-      color: var(--text-soft);
-      max-width: 520px;
-      margin-bottom: 22px;
+      font-size: 1.2rem;
+      color: #c9d4f5;
+      margin-bottom: 25px;
     }
 
-    .subheadline strong {
-      color: var(--emerald);
-      font-weight: 600;
-    }
-
-    .benefits {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-      margin-bottom: 26px;
-    }
-
-    @media (max-width: 800px) {
-      .benefits {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 540px) {
-      .benefits {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .benefit-pill {
+    .video-space {
+      width: 100%;
+      height: 300px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 2px dashed rgba(0, 214, 122, 0.4);
+      border-radius: 12px;
+      margin-bottom: 30px;
       display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 10px;
-      border-radius: 999px;
-      background: rgba(10, 16, 32, 0.9);
-      border: 1px solid rgba(201, 212, 245, 0.18);
-      color: var(--text-soft);
-      font-size: 12px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .benefit-icon {
-      width: 18px;
-      height: 18px;
-      border-radius: 999px;
-      display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-size: 11px;
-      background: radial-gradient(circle at 30% 0, var(--emerald), var(--navy-soft));
-      color: var(--white);
-      box-shadow: 0 0 10px rgba(0, 214, 122, 0.7);
-    }
-
-    .benefit-pill.gold {
-      border-color: rgba(245, 199, 106, 0.4);
-      background: radial-gradient(circle at 0 0, rgba(245, 199, 106, 0.25), rgba(10, 16, 32, 0.95));
-    }
-
-    .benefit-pill.gold .benefit-icon {
-      background: radial-gradient(circle at 30% 0, var(--gold), var(--navy-soft));
-      box-shadow: 0 0 10px rgba(245, 199, 106, 0.8);
-    }
-
-    .trust-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      align-items: center;
-      margin-top: 4px;
-    }
-
-    .trust-label {
-      font-size: 12px;
-      color: var(--text-soft);
-      opacity: 0.9;
-    }
-
-    .trust-logos {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .trust-chip {
-      font-size: 11px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(201, 212, 245, 0.2);
-      color: var(--text-soft);
-      background: rgba(5, 8, 22, 0.9);
-    }
-
-    /* Right column: card */
-    .card {
-      background: radial-gradient(circle at 0 0, rgba(0, 214, 122, 0.18), transparent 55%),
-        radial-gradient(circle at 100% 0, rgba(245, 199, 106, 0.18), transparent 55%),
-        rgba(5, 8, 22, 0.96);
-      border-radius: 24px;
-      padding: 22px 20px 20px;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(201, 212, 245, 0.18);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        135deg,
-        rgba(255, 255, 255, 0.12),
-        transparent 40%,
-        transparent 60%,
-        rgba(255, 255, 255, 0.06)
-      );
-      opacity: 0.08;
-      pointer-events: none;
-    }
-
-    .card-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      margin-bottom: 16px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .card-title {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--text-soft);
-    }
-
-    .card-tag {
-      font-size: 11px;
-      padding: 4px 9px;
-      border-radius: 999px;
-      background: rgba(0, 214, 122, 0.12);
-      color: var(--emerald);
-      border: 1px solid rgba(0, 214, 122, 0.5);
+      color: #00d67a;
+      font-weight: 500;
+      font-size: 1rem;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .card-subtitle {
-      font-size: 13px;
-      color: var(--text-soft);
-      margin-bottom: 16px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .card-subtitle strong {
-      color: var(--gold);
-      font-weight: 600;
     }
 
     .form {
-      position: relative;
-      z-index: 1;
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      margin-bottom: 14px;
-    }
-
-    .field-label {
-      font-size: 12px;
-      color: var(--text-soft);
-      margin-bottom: 2px;
-    }
-
-    .field-wrapper {
-      position: relative;
-    }
-
-    .input {
-      width: 100%;
-      padding: 12px 12px 12px 38px;
-      border-radius: 999px;
-      border: 1px solid rgba(201, 212, 245, 0.4);
-      background: rgba(255, 255, 255, 0.98);
-      color: #111827;
-      font-size: 14px;
-      outline: none;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-      transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.12s ease;
-    }
-
-    .input::placeholder {
-      color: #9ca3af;
-    }
-
-    .input-icon {
-      position: absolute;
-      left: 12px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 14px;
-      color: #6b7280;
-    }
-
-    .input:focus {
-      border-color: var(--emerald);
-      box-shadow:
-        0 0 0 1px rgba(0, 214, 122, 0.5),
-        0 14px 40px rgba(0, 0, 0, 0.6);
-      transform: translateY(-1px);
-    }
-
-    .cta-button {
-      margin-top: 4px;
-      width: 100%;
-      border: none;
-      border-radius: 999px;
-      padding: 13px 16px;
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      cursor: pointer;
-      color: #02130a;
-      background: radial-gradient(circle at 0 0, #4dffb0, #00d67a);
-      box-shadow:
-        0 0 18px rgba(0, 214, 122, 0.9),
-        0 18px 40px rgba(0, 0, 0, 0.7);
-      display: inline-flex;
       align-items: center;
-      justify-content: center;
-      gap: 8px;
-      transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
-      position: relative;
-      overflow: hidden;
+      gap: 12px;
     }
 
-    .cta-button::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        120deg,
-        rgba(255, 255, 255, 0.4),
-        transparent 40%,
-        transparent 60%,
-        rgba(255, 255, 255, 0.2)
-      );
-      opacity: 0;
-      transition: opacity 0.18s ease;
-      pointer-events: none;
+    input[type="email"] {
+      width: 80%;
+      max-width: 400px;
+      padding: 14px 16px;
+      border-radius: 999px;
+      border: none;
+      font-size: 1rem;
+      color: #111;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
     }
 
-    .cta-button span {
-      position: relative;
-      z-index: 1;
+    input::placeholder {
+      color: #777;
     }
 
-    .cta-button:hover {
-      transform: translateY(-1px) scale(1.01);
-      box-shadow:
-        0 0 22px rgba(0, 214, 122, 1),
-        0 22px 50px rgba(0, 0, 0, 0.8);
-      filter: saturate(1.1);
+    button {
+      background: linear-gradient(135deg, #00d67a, #00b86a);
+      color: #02130a;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 14px 24px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 0 25px rgba(0, 214, 122, 0.8);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .cta-button:hover::after {
-      opacity: 0.4;
-    }
-
-    .cta-button:active {
-      transform: translateY(0) scale(0.99);
-      box-shadow:
-        0 0 12px rgba(0, 214, 122, 0.8),
-        0 10px 26px rgba(0, 0, 0, 0.7);
-    }
-
-    .cta-arrow {
-      font-size: 14px;
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 35px rgba(0, 214, 122, 1);
     }
 
     .microcopy {
-      font-size: 11px;
-      color: var(--text-soft);
-      opacity: 0.9;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .micro-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--emerald);
-      box-shadow: 0 0 8px rgba(0, 214, 122, 0.9);
-    }
-
-    .secure-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
+      font-size: 0.85rem;
+      color: #c9d4f5;
       margin-top: 10px;
-      font-size: 11px;
-      color: var(--text-soft);
     }
 
-    .secure-left {
-      display: flex;
-      align-items: center;
-      gap: 6px;
+    .highlight {
+      color: #f5c76a;
+      font-weight: 600;
     }
 
-    .lock-icon {
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      border: 1px solid rgba(201, 212, 245, 0.4);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 10px;
-      color: var(--emerald);
-      background: rgba(5, 8, 22, 0.9);
-    }
-
-    .secure-right {
-      text-align: right;
-      opacity: 0.85;
-    }
-
-    .secure-right span {
-      color: var(--gold);
-    }
-
-    .divider {
-      margin: 16px 0 12px;
-      height: 1px;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(201, 212, 245, 0.35),
-        transparent
-      );
-    }
-
-    .mini-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 10px;
-      font-size: 11px;
-      color: var(--text-soft);
-    }
-
-    @media (max-width: 480px) {
-      .mini-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
       }
-    }
-
-    .mini-item {
-      padding: 8px 9px;
-      border-radius: 10px;
-      background: rgba(5, 8, 22, 0.9);
-      border: 1px solid rgba(201, 212, 245, 0.18);
-    }
-
-    .mini-label {
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: rgba(201, 212, 245, 0.7);
-      margin-bottom: 2px;
-    }
-
-    .mini-value {
-      font-size: 11px;
-      color: var(--white);
-    }
-
-    .mini-value span {
-      color: var(--emerald);
-    }
-
-    .mini-value.gold {
-      color: var(--gold);
-    }
-
-    .footer-cta {
-      margin-top: 26px;
-      text-align: center;
-      font-size: 13px;
-      color: var(--text-soft);
-    }
-
-    .footer-cta strong {
-      color: var(--white);
-    }
-
-    .footer-cta .inline-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 8px;
-      padding: 6px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(0, 214, 122, 0.5);
-      background: rgba(5, 8, 22, 0.9);
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--emerald);
-    }
-
-    .footer-cta .inline-cta-icon {
-      font-size: 12px;
+      .video-space {
+        height: 200px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="page-wrapper">
-    <main class="landing">
-      <div class="network-layer"></div>
+  <div class="container">
+    <div class="attention">⚡ Oportunidad Limitada · Primeros en llegar</div>
+    <h1>Build Your <span>Success Team</span> Fast</h1>
+    <p class="subheadline">Descubre cómo construir tu equipo sin pagar nada al inicio — solo para quienes actúan rápido.</p>
 
-      <div class="content-grid">
-        <!-- LEFT COLUMN -->
-        <section>
-          <div class="badge">
-            <span class="badge-dot"></span>
-            EQUIPO DE ALTO RENDIMIENTO · OPORTUNIDAD ONLINE
-          </div>
+    <div class="video-space">Espacio para video de presentación</div>
 
-          <h1 class="headline">
-            BUILD YOUR <span>SUCCESS TEAM</span> FAST
-          </h1>
-
-          <p class="subheadline">
-            Duplica tu velocidad de crecimiento con un sistema probado para
-            <strong>atraer socios listos para avanzar</strong>, sin parecer
-            agresivo ni perder tiempo con curiosos.
-          </p>
-
-          <div class="benefits">
-            <div class="benefit-pill">
-              <span class="benefit-icon">⚡</span>
-              Aceleración inmediata
-            </div>
-            <div class="benefit-pill">
-              <span class="benefit-icon">🎯</span>
-              Prospectos más calificados
-            </div>
-            <div class="benefit-pill gold">
-              <span class="benefit-icon">⭐</span>
-              Imagen 100% profesional
-            </div>
-          </div>
-
-          <div class="trust-row">
-            <div class="trust-label">Diseñado para inspirar confianza:</div>
-            <div class="trust-logos">
-              <div class="trust-chip">Sistema automatizado 24/7</div>
-              <div class="trust-chip">Enfoque en resultados reales</div>
-              <div class="trust-chip">Sin clutter, solo conversión</div>
-            </div>
-          </div>
-        </section>
-
-        <!-- RIGHT COLUMN: CARD -->
-        <aside>
-          <div class="card">
-            <div class="card-header">
-              <div class="card-title">Acceso prioritario a la presentación privada</div>
-              <div class="card-tag">Cupos limitados</div>
-            </div>
-
-            <p class="card-subtitle">
-              Reserva tu posición y descubre cómo construir un
-              <strong>equipo de éxito</strong> usando sistemas modernos,
-              automatización y una imagen premium que vende por ti.
-            </p>
-
-            <form class="form">
-              <div>
-                <div class="field-label">Correo electrónico</div>
-                <div class="field-wrapper">
-                  <span class="input-icon">✉️</span>
-                  <input
-                    type="email"
-                    class="input"
-                    placeholder="tu-mejor-correo@ejemplo.com"
-                    required
-                  />
-                </div>
-              </div>
-
-              <button type="submit" class="cta-button">
-                <span>Reserve Your Position Today</span>
-                <span class="cta-arrow">➜</span>
-              </button>
-
-              <div class="microcopy">
-                <span class="micro-dot"></span>
-                Sin spam. Solo información clara para acelerar tu éxito.
-              </div>
-
-              <div class="secure-row">
-                <div class="secure-left">
-                  <span class="lock-icon">🔒</span>
-                  <span>Datos protegidos con cifrado estándar.</span>
-                </div>
-                <div class="secure-right">
-                  Acceso inmediato a la <span>presentación privada</span>.
-                </div>
-              </div>
-            </form>
-
-            <div class="divider"></div>
-
-            <div class="mini-grid">
-              <div class="mini-item">
-                <div class="mini-label">Velocidad</div>
-                <div class="mini-value">
-                  Construye equipo <span>en tiempo récord</span>
-                </div>
-              </div>
-              <div class="mini-item">
-                <div class="mini-label">Conversión</div>
-                <div class="mini-value gold">
-                  Landing optimizada para leads calientes
-                </div>
-              </div>
-              <div class="mini-item">
-                <div class="mini-label">Imagen</div>
-                <div class="mini-value">
-                  Estética <span>premium y profesional</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="footer-cta">
-            <strong>Tu equipo no se construirá solo.</strong> Empieza hoy con una
-            presentación que posiciona tu oportunidad como algo serio y deseable.
-            <div class="inline-cta">
-              <span class="inline-cta-icon">🚀</span>
-              Activa tu posición ahora
-            </div>
-          </div>
-        </aside>
-      </div>
-    </main>
+    <form class="form">
+      <input type="email" placeholder="tu-mejor-correo@ejemplo.com" required />
+      <button>Reserve Your Position Today</button>
+      <p class="microcopy">Sin spam. Solo información que despierta curiosidad y resultados reales.</p>
+    </form>
   </div>
 </body>
 </html>
